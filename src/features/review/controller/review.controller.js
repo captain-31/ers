@@ -228,14 +228,16 @@ export const getUserAddReview = async (req, res) => {
                 success: false, 
                 error: 'Review not found',
                 message: null,
-                data: null
+                data: null,
+                userEmail: req.email ? req.email : null 
             })
         }
         res.render('user/review-user', { 
             success: false, 
             error: null, 
             message: null ,
-            data: review
+            data: review,
+            userEmail: req.email ? req.email : null 
         })
     } catch (error) {
         console.log(error)
@@ -243,7 +245,8 @@ export const getUserAddReview = async (req, res) => {
             success: false,
             error: error,
             message: null,
-            data: null
+            data: null,
+            userEmail: req.email ? req.email : null 
         })
     }
 
@@ -262,7 +265,8 @@ export const postUserAddReview = async (req, res) => {
             success: true, 
             message: 'Review added successfully!' ,
             error: null, 
-            data: updatedReview
+            data: updatedReview,
+            userEmail: req.email ? req.email : null 
         })
     } catch (error) {
         console.log(error)
@@ -270,7 +274,8 @@ export const postUserAddReview = async (req, res) => {
             success: false,
             error: error,
             message: null,
-            data: req.body
+            data: req.body,
+            userEmail: req.email ? req.email : null 
         })
     }
 }

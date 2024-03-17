@@ -8,7 +8,7 @@ export const getIndex = async (req, res) => {
         error: null, 
         success: false,
         message: null,
-        isAdmin: req.type === 'admin' ? true : false 
+        userEmail: req.email ? req.email : null 
     });
 }
 
@@ -205,20 +205,22 @@ export const getUserDashboard = async (req, res) => {
         if(pendingReviews.length > 0) {
             res.render('user/user-dashboard', { 
                 error: null, 
-                data: pendingReviews
+                data: pendingReviews,
+                userEmail: req.email ? req.email : null 
             })
         } else {
             return res.render('user/user-dashboard', { 
                 error: 'No pending reviews found',
-                data: null, 
+                data: null,
+                userEmail: req.email ? req.email : null 
             })
         }
     } catch (error) {
         console.log(error)
         return res.render('user/user-dashboard', { 
             error: error,
-            data: null
+            data: null,
+            userEmail: req.email ? req.email : null 
         })
     }
-    res.render('user/user-dashboard')
 }
