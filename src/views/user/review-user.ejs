@@ -1,0 +1,35 @@
+<div class="my-4 px-2">
+    <h2 class="card-title mb-3">Add review to employee</h2>
+    <p class="card-text">You can add review to employee: <span class="text-warning bg-dark"> <%= data.revieweeEmail || '' %></span>. </p>
+</div>
+
+<form action="/user/review/add" method="post" class="px-2">
+
+    <input type="text" name="id" id="" value="<%= data.id || '' %>" hidden>
+    <div class="row g-3 mb-3">
+        <div class="col-md-6">
+            <label for="review" class="form-label">Review details</label>
+            <input type="text" class="form-control" id="review" name="review" placeholder="User name"
+                value="<%= data.review || '' %>">
+        </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block mt-3">Add review</button>
+
+
+</form>
+
+<div class="px-2">
+    <% if(error) { %>
+        <p class="py-3 text-danger">
+        <%= error %>
+    </p>
+    <% } %>
+    
+    <% if(success) { %>
+        <p class="py-3 text-success">
+            <%= message %>
+        </p>
+    <% } %>
+</div>

@@ -1,0 +1,58 @@
+<div class="my-4 px-2">
+    <h2 class="card-title mb-3">List of all reviews</h2>
+    <p class="card-text">You can update reviews from this page.</p>
+</div>
+
+<% if(reviews) { %>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Reviewer email</th>
+                <th scope="col">Reviewee email</th>
+                <th scope="col">Review</th>
+                <th scope="col">Submited on</th>
+                <th scope="col">Status</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% for (var i = 0; i < reviews.length; i++ ) { %>
+
+                <tr>
+                    <th scope="row"><%= i+1 %></th>
+                    <td><%= reviews[i].reviewerEmail %></td>
+                    <td><%= reviews[i].revieweeEmail %></td>
+                    <td><%= reviews[i].review %></td>
+
+                    <td>
+                    <% if(!reviews[i].submittedAt) { %>
+                        <span class="badge text-bg-info">Under review</span>
+                    <% } else { %>
+                        <%= reviews[i].submittedAt %></td>
+                    <% } %>
+
+                    <td>
+                        <span class="badge text-bg-<%=reviews[i].status === 'complete' ? 'success' : 'warning' %>"><%=reviews[i].status %></td>
+                        </span>
+                    <td> 
+                        <% if(reviews[i].status === 'complete') { %>
+                            <a href="/admin/review/edit/<%= reviews[i]._id %>" class="text-decoration-none pe-2"> <img src="/images/edit-3.svg" alt="edit" > </a>      
+                        <% } %>
+                                          
+                    </td>
+                </tr>
+            
+            <% } %>
+
+        </tbody>
+    </table>
+
+
+<% } else { %> 
+
+    <p class="p-2 text-danger">Reviews not found</p>
+    
+<% } %>
+

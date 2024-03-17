@@ -1,0 +1,43 @@
+<div class="my-4 px-2">
+    <h2 class="card-title mb-3">Assign performance review to employee</h2>
+    <p class="card-text">You can use employee email id to review an employee using this form. </p>
+</div>
+
+<form action="/admin/review/assign" method="post" class="px-2">
+
+    <input type="text" name="initiatedBy" id="" value="<%= data.initiatedBy || '' %>" hidden>
+
+    <div class="row g-3 mb-3">
+
+        <div class="col-md-6">
+            <label for="review" class="form-label">Email of reviewer</label>
+            <input type="email" class="form-control" id="reviewerEmail" name="reviewerEmail" placeholder="who gives a review"
+                value="<%= data.reviewerEmail || '' %>">
+        </div>
+
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email of reviewee</label>
+            <input type="email" class="form-control" id="revieweeEmail" name="revieweeEmail" placeholder="who recieves a review"
+                value="<%= data.revieweeEmail || '' %>">
+        </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block mt-3">Assign review</button>
+
+
+</form>
+
+<div class="px-2">
+    <% if(error) { %>
+        <p class="py-3 text-danger">
+        <%= error %>
+    </p>
+    <% } %>
+    
+    <% if(success) { %>
+        <p class="py-3 text-success">
+            <%= message %>
+        </p>
+    <% } %>
+</div>

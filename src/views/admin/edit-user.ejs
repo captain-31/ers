@@ -1,0 +1,57 @@
+<div class="my-4 px-2">
+    <h2 class="card-title mb-3">Edit user</h2>
+    <p class="card-text">You can edit user details using this form.</p>
+</div>
+
+<form action="/admin/user/edit/<%= data._id || data.id || '' %>" method="post" class="px-2">
+
+    <input type="text" name="id" id="id" value="<%= data._id || data.id || '' %>" hidden>
+
+    <div class="row g-3 mb-3">
+        <div class="col-md-6">
+            <label for="email" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="User name"
+                value="<%= data.name || '' %>">
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"
+                value="<%= data.email || '' %>">
+        </div>
+
+        <div class="col-md-6">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password"
+                value="<%= data.password || '' %>">
+        </div>
+
+        <div class="col-md-6">
+            <label for="type" class="form-label">Select Type</label>
+            <select name="type" id="type" class="form-select">
+                <option value="employee" "<%= data.type === 'employee' ? 'selected' : '' %> >Employee
+            </option>
+            <option value="admin" <%=data.type==='admin' ? 'selected' : '' %> >Admin</option>
+            </select>
+        </div>
+
+
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block mt-3">Update user</button>
+
+
+</form>
+
+<div class="px-2">
+    <% if(error) { %>
+        <p class="py-3 text-danger">
+        <%= error %>
+    </p>
+    <% } %>
+    
+    <% if(success) { %>
+        <p class="py-3 text-success">
+            <%= message %>
+        </p>
+    <% } %>
+</div>

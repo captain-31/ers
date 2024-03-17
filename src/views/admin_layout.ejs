@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+
+    <!-- header -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">ERS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">/root</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+
+
+                  
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-3">
+                <h5 class="ps-2">Admin Panel</h5>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action fw-bolder">Users</li>
+                    <a href="/admin/user/add"
+                        class="list-group-item list-group-item-action ps-4 <%= activeLink === 'addUser' ? 'active' : '' %>">
+                        <img src="/images/user-plus.svg" alt="new user" class="pe-2"> Add new user </a>
+                    <a href="/admin/user/all"
+                        class="list-group-item list-group-item-action ps-4 <%= activeLink === 'allUsers' ? 'active' : '' %>">
+                        <img src="/images/users.svg" alt="new user" class="pe-2"> View all users</a>
+                    <li class="list-group-item fw-bolder">Performance Review</li>
+                    <!-- <li class="list-group-item ps-4">Add a review</li> -->
+                    <!-- <li class="list-group-item ps-4">View all reviews</li> -->
+                    <a href="/admin/review/add"
+                        class="list-group-item list-group-item-action ps-4 <%= activeLink === 'addReview' ? 'active' : '' %>">
+                        <img src="/images/file-plus.svg" alt="add review" class="pe-2">Add a review</a>
+
+                    <a href="/admin/review/all"
+                        class="list-group-item list-group-item-action ps-4 <%= activeLink === 'allReviews' ? 'active' : '' %>">
+                        <img src="/images/book.svg" alt="all reviews" class="pe-2">View all reviews </a>
+
+                    <a href="/admin/review/assign"
+                        class="list-group-item list-group-item-action ps-4 <%= activeLink === 'assignReview' ? 'active' : '' %>">
+                        <img src="/images/message-square.svg" alt="assign review" class="pe-2"> Assign reviews </a>
+                </ul>
+            </div>
+            <div class="col-md-9 px-4">
+                <!-- EJS placeholder for rendering individual view content -->
+                <%-body%>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <span>&copy; 2024 ERS</span>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

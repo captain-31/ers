@@ -1,0 +1,15 @@
+body {
+    min-height: 100vh;
+    /* Ensure the body fills the viewport */
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: auto;
+    /* Push the footer to the bottom */
+    background-color: #ecfefa;
+    color: #000;
+    text-align: center;
+    padding: 10px 0;
+}
